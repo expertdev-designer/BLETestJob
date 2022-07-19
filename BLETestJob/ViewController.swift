@@ -85,6 +85,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.connector?.centralManager.stopScan()
         self.connector?.peripheral = self.connector?.devices[indexPath.row]
         self.connector?.centralManager.connect((self.connector?.peripheral.device)!, options: nil)
